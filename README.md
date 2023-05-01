@@ -1,10 +1,10 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/TRO861__)
-# ECG assignment: Shader
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/1Zvp0ubu)
+# Group assignment 01 - WebGL demo
 
 ## Task
-The task is to implement a small WebGL program that renders one 3D object (either primitive (e.g. cube) or loaded from a GLTF) using some *artful* or *technically challenging* vertex/fragment shader combination.
+The task is to implement a small WebGL program that renders a 3D scene that includes some loaded (or procedurally generated) 3D models that are animated.
 
-The implementation has to be done individually and will be presented in class (max 2-3 minutes).
+The implementation has to be done in teams and will be presented in class (exactly 10 minutes).
 
 The code needs to be committed (pushed) into this Github classroom repository. It will be rendered on the teachers laptop (no CUDA, Win11, Firefox or Chrome or Edge).
 
@@ -12,12 +12,12 @@ The code needs to be explained in a short readme.
 
 ## Rating
 The rating will be as follows:
-- presentation and challenge: 30 % 
-- arts and/or math: 40 %
-- code quality: 30 %
+- presentation and idea: 30 % 
+- arts and/or math: 30 %
+- code quality: 40 %
 
-## Explanation
-Made a colorful little rocket that rotates in all axes and different radians.
-The FragmentShader puts a little grid on it, which reminds me of old tube televisions, where you can see every pixel. The grid takes the horizontal and vertical coordinates and makes a black line every 5 steps.
+## Hints
+In order to load a 3D model, [three.js](https://threejs.org) can be used. Follow the [installation instructions](https://threejs.org/docs/#manual/en/introduction/Installation) and create your own scene. Get inspired by the [examples](https://threejs.org/examples/), but come up with your own ideas and models. Use [some control method from three.js](https://threejs.org/examples/?q=controls) in order to make the scene explorable by the user. Note that the animation shall not be stored in the 3D model file, but needs to be defined by transformations in the WebGL JavaScript code. You can combine results and ideas from your individual assignment-shader project.
 
-
+# ToDo
+*Replace this readme with a proper readme for your project* 
