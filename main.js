@@ -22,10 +22,11 @@ function init() {
   camera.position.set(0, 0, 10);
 
   scene = new THREE.Scene();
-  const backgroundLoader = new THREE.TextureLoader();
-  backgroundLoader.load('./assets/images/space.jpg', function (texture) {
-      scene.background = texture;
-  });
+
+  var sky = new THREE.Mesh(new THREE.SphereGeometry(100, 100, 100), new THREE.MeshBasicMaterial());
+  sky.material.map = new THREE.TextureLoader().load( './assets/images/space.jpg' );
+  sky.material.side = THREE.BackSide;
+  scene.add(sky);
 
   geometry = new THREE.CircleGeometry( 0.8, 32 ); 
   material = new THREE.ShaderMaterial({
