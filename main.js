@@ -119,6 +119,15 @@ function animate() {
   const currentTime = Date.now() / 1000; 
   time = currentTime;
   // animateObject(portal, 1, 1, 0, time, "position");
+    
+  gate.traverse( function( child ) {
+    if ( child instanceof THREE.Mesh ) {
+
+        child.material.emissiveIntensity = Math.sin(time); // Adjust brightness
+        child.material.emissive = new THREE.Color(0x777777 * Math.sin(time/1000)); // Adjust Color
+      }
+  } );
+
   animateObject(gate, 1, 1, 0, time, "position");
   animateObject(mesh, 1, 1, 500, time, "position");
   animateObject(mesh, 1, 1, 0, time, "rotation");
