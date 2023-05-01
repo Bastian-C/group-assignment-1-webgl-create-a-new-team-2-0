@@ -63,7 +63,7 @@ modelLoader.load('./assets/models/Xenon_Gate.gltf', function (gltf) {
   gate = gltf.scene;
   gate.name = "gate";
   scene.add(gate);
-  gate.position.set(0, 0.23, -0.3);
+  gate.position.set(0, 0.225, -0.3);
   gate.scale.set(2, 2, 2);
 
 }, undefined, function (error) {
