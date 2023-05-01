@@ -24,7 +24,7 @@ function init() {
   scene = new THREE.Scene();
 
   var sky = new THREE.Mesh(new THREE.SphereGeometry(100, 100, 100), new THREE.MeshBasicMaterial());
-  sky.material.map = new THREE.TextureLoader().load( './assets/images/space.jpg' );
+  sky.material.map = new THREE.TextureLoader().load( './assets/images/earth.jpg' );
   sky.material.side = THREE.BackSide;
   sky.rotation.set(0, 90, 0);
   scene.add(sky);
