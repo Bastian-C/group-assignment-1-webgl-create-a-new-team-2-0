@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
 let modelLoader = new GLTFLoader();
-let container, camera, scene, renderer, geometry, material, mesh, controls, portal, time;
+let container, camera, scene, renderer, geometry, material, mesh, controls, portal, gate, time;
 let loader = new THREE.TextureLoader();
 let texture = loader.load('./assets/images/AlternateUniverse.png');
 
@@ -29,7 +29,7 @@ function init() {
   sky.rotation.set(0, 90, 0);
   scene.add(sky);
 
-  geometry = new THREE.CircleGeometry( 0.8, 32 ); 
+  geometry = new THREE.CircleGeometry( 0.95, 32 ); 
   material = new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
@@ -41,20 +41,33 @@ function init() {
   });
 
   mesh = new THREE.Mesh(geometry, material);
+  mesh.material.side = THREE.DoubleSide;
   mesh.position.set(0, 0.2, -0.35);
   scene.add(mesh);
 
-  portal = new THREE.Object3D();
-  modelLoader.load('./assets/models/portalmodel.glb', function (gltf) {
-    portal.add(gltf.scene.children[0]);
-    portal.name = "portal";
-    portal.children[0].children[0].castShadow = true;
-    portal.children[0].children[0].receiveShadow = true;
-    scene.add(portal);
-    portal.position.set(0, -1, 0);
-    portal.scale.set(12, 12, 12);
+// //   portal = new THREE.Object3D();
+// //   modelLoader.load('./assets/models/portalmodel.glb', function (gltf) {
+// //     portal.add(gltf.scene.children[0]);
+// //     portal.name = "portal";
+// //     portal.children[0].children[0].castShadow = true;
+// //     portal.children[0].children[0].receiveShadow = true;
+// //     scene.add(portal);
+// //     portal.position.set(0, -1, 0);
+// //     portal.scale.set(12, 12, 12);
+// // }, undefined, function (error) {
+// //     console.error(error);
+// // })
+
+gate = new THREE.Object3D();
+modelLoader.load('./assets/models/Xenon_Gate.gltf', function (gltf) {
+  gate = gltf.scene;
+  gate.name = "gate";
+  scene.add(gate);
+  gate.position.set(0, 0.21, -0.3);
+  gate.scale.set(2, 2, 2);
+
 }, undefined, function (error) {
-    console.error(error);
+  console.error(error);
 })
 
   const light = new THREE.DirectionalLight(0xffffff, 1);
@@ -101,13 +114,16 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
+
 function animate() {
   const currentTime = Date.now() / 1000; 
   time = currentTime;
-  animateObject(portal, 1, 1, 0, time, "position");
-  animateObject(mesh, 1, 1, 1000, time, "position");
+  // animateObject(portal, 1, 1, 0, time, "position");
+  animateObject(gate, 1, 1, 0, time, "position");
+  animateObject(mesh, 1, 1, 500, time, "position");
   animateObject(mesh, 1, 1, 0, time, "rotation");
-  animateObject(mesh, 1.5, 0.1, 0, time, "scale");
+  animateObject(gate.children[1], 1, 1, 0, -1.5*time, "rotation");
+  animateObject(mesh, 1.1, 0.1, 0, 0.1*time, "scale");
   requestAnimationFrame(animate);
   render();
   controls.update();
