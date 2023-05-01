@@ -21,3 +21,4 @@ In order to load a 3D model, [three.js](https://threejs.org) can be used. Follow
 
 # ToDo
 Das Bild beschreibt eine Weltraumszene in der ein 3D-Modell von einem Portal reingeladen wird und in der Luft schwebt. Dieses Portal besitzt in der Mitte eine Three.js CircleGeometry Plane, welche mit Shader zu einem Swirrlie Portal Effekt überzogen wird und im Kern ein Bild von einem anderen Universum, welches wir auch getrennt erstellt haben, zeigt. Das Portal wird mit auf und ab "Schwebe"-Animationen versehen und der Kreis in der Mitte mit einer verzögerten "Schwebe"-Animation, welche Magnetfelder und Anziehungskräfte simulieren sollen. Noch dazu rotiert und skaliert sich das Portal, um einen schönen Effekt zu kreieren. 
+Der Planet befindet sich in einem anderen Teil des Universums und soll als Ziel des 3D-Portals angesteuert werden. Der Planet wird von einer anderen Lichtquelle beleuchtet und schimmert aus diesem Grund in einem rötlich Ton.
