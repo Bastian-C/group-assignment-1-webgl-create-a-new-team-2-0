@@ -4,7 +4,7 @@ import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitC
 let modelLoader = new GLTFLoader();
 let container, camera, scene, renderer, geometry, material, mesh, controls, portal, time;
 let loader = new THREE.TextureLoader();
-let texture = loader.load('assets/images/AlternateUniverse.png');
+let texture = loader.load('./assets/images/AlternateUniverse.png');
 
 init();
 animate();
@@ -23,7 +23,7 @@ function init() {
 
   scene = new THREE.Scene();
   const backgroundLoader = new THREE.TextureLoader();
-  backgroundLoader.load('assets/images/space.jpg', function (texture) {
+  backgroundLoader.load('./assets/images/space.jpg', function (texture) {
       scene.background = texture;
   });
 
@@ -43,7 +43,7 @@ function init() {
   scene.add(mesh);
 
   portal = new THREE.Object3D();
-  modelLoader.load('assets/models/portalmodel.glb', function (gltf) {
+  modelLoader.load('./assets/models/portalmodel.glb', function (gltf) {
     portal.add(gltf.scene.children[0]);
     portal.name = "portal";
     portal.children[0].children[0].castShadow = true;
