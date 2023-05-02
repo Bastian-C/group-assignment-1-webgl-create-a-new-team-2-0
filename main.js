@@ -76,8 +76,8 @@ modelLoader.load('./assets/models/Space_Sphere.gltf', function (gltf) {
   spaceSphere.name = "spaceSphere";
   scene.add(spaceSphere);
   spaceSphere.position.set(0, 0, 0);
-  spaceSphere.scale.set(5, 5, 5);
-
+  spaceSphere.scale.set(10, 10, 10);
+  spaceSphere.rotation.set(5, 5, 5);
 }, undefined, function (error) {
   console.error(error);
 })
