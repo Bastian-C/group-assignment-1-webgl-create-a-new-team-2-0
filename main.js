@@ -144,7 +144,7 @@ function animate() {
   animateObject(gate, 1, 1, 0, time, "position");
   animateObject(mesh, 1, 1, 500, time, "position");
   animateObject(mesh, 1, 1, 0, time, "rotation");
-  animateObject(gate.children[1], 1, 1, 0, -1.5*time, "rotation");
+  animateObject(gate.children[1], 1, 1, 0, -1.5*time, "rotation"); // gate.children[0] is the Outer ring of the Gate model. gate.children[1] is the inner ring.
   animateObject(mesh, 1.1, 0.1, 0, 0.1*time, "scale");
   requestAnimationFrame(animate);
   render();
