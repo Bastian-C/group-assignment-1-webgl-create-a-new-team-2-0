@@ -114,6 +114,14 @@
         },
         "metallicFactor": 0.0
       },
+      "emissiveTexture": {
+        "index": 0
+      },
+      "emissiveFactor": [
+        1.0,
+        1.0,
+        1.0
+      ],
       "name": "Material #2"
     }
   ],

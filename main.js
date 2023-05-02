@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
 let modelLoader = new GLTFLoader();
-let container, camera, scene, renderer, geometry, material, mesh, controls, portal, gate, time;
+let container, camera, scene, renderer, geometry, material, mesh, controls, spaceSphere, gate, time;
 let loader = new THREE.TextureLoader();
 let texture = loader.load('./assets/images/AlternateUniverse.png');
 
@@ -23,11 +23,11 @@ function init() {
 
   scene = new THREE.Scene();
 
-  var sky = new THREE.Mesh(new THREE.SphereGeometry(100, 100, 100), new THREE.MeshBasicMaterial());
-  sky.material.map = new THREE.TextureLoader().load( './assets/images/earth.jpg' );
-  sky.material.side = THREE.BackSide;
-  sky.rotation.set(0, 90, 0);
-  scene.add(sky);
+//  var sky = new THREE.Mesh(new THREE.SphereGeometry(100, 100, 100), new THREE.MeshBasicMaterial());
+//  sky.material.map = new THREE.TextureLoader().load( './assets/images/earth.jpg' );
+//  sky.material.side = THREE.BackSide;
+//  sky.rotation.set(0, 90, 0);
+//  scene.add(sky);
 
   geometry = new THREE.CircleGeometry( 0.95, 32 ); 
   material = new THREE.ShaderMaterial({
@@ -69,6 +69,19 @@ modelLoader.load('./assets/models/Xenon_Gate.gltf', function (gltf) {
 }, undefined, function (error) {
   console.error(error);
 })
+
+spaceSphere = new THREE.Object3D();
+modelLoader.load('./assets/models/Space_Sphere.gltf', function (gltf) {
+  spaceSphere = gltf.scene;
+  spaceSphere.name = "spaceSphere";
+  scene.add(spaceSphere);
+  spaceSphere.position.set(0, 0, 0);
+  spaceSphere.scale.set(5, 5, 5);
+
+}, undefined, function (error) {
+  console.error(error);
+})
+
 
   const light = new THREE.DirectionalLight(0xffffff, 1);
   light.position.set(0, 10, 0);
