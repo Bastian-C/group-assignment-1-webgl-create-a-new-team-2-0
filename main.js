@@ -83,7 +83,7 @@ modelLoader.load('./assets/models/Space_Sphere.gltf', function (gltf) {
 })
 
 
-  const light = new THREE.DirectionalLight(0xffffff, 1);
+  const light = new THREE.DirectionalLight(0xffffff, 2);
   light.position.set(0, 10, 0);
   scene.add(light);
 
@@ -136,8 +136,8 @@ function animate() {
   gate.traverse( function( child ) {
     if ( child instanceof THREE.Mesh ) {
 
-        child.material.emissiveIntensity = Math.sin(time); // Adjust brightness
-        child.material.emissive = new THREE.Color(0x777777 * Math.sin(time/1000)); // Adjust Color
+        child.material.emissiveIntensity = Math.sin(time)*0.4+0.8; // Adjust brightness
+        child.material.emissive = new THREE.Color(0xFFFFFF); // Adjust Color
       }
   } );
 
